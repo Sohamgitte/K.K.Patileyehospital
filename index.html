@@ -297,8 +297,9 @@
             position: relative;
         }
         .stat-card {
-            background: #fff; padding: 2.25rem 1.75rem; border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            padding: 2.25rem 1.75rem; border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(15,76,129,0.08); border: 1px solid rgba(255,255,255,0.8);
             text-align: center; transition: all .4s var(--ease); height: 100%;
             position: relative; overflow: hidden;
         }
@@ -307,7 +308,7 @@
             background: radial-gradient(500px 200px at 50% -20%, rgba(79,195,247,.35), transparent 60%);
             transition: opacity .4s var(--ease);
         }
-        .stat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-8px); border-color: rgba(30,136,229,.25); }
+        .stat-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(15,76,129,0.15); border-color: rgba(30,136,229,.4); }
         .stat-card:hover::before { opacity: 1; }
         .stat-icon {
             width: 68px; height: 68px; border-radius: 18px;
@@ -329,35 +330,40 @@
 
         /* ===================== Services ===================== */
         .service-card {
-            background: #fff; border-radius: var(--radius-lg); padding: 2rem 1.75rem;
-            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+            background: linear-gradient(135deg, #0F4C81 0%, #1E88E5 100%);
+            border-radius: var(--radius-lg); padding: 2rem 1.75rem;
+            border: 1px solid rgba(255,255,255,0.15); box-shadow: var(--shadow-sm);
             transition: all .4s var(--ease); height: 100%; position: relative; overflow: hidden;
+            color: #fff;
         }
         .service-card::after {
             content:""; position:absolute; inset:0; border-radius: inherit; padding: 1px;
-            background: var(--grad-primary);
+            background: rgba(255,255,255,0.2);
             -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude;
             opacity: 0; transition: opacity .4s var(--ease);
         }
-        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(15,76,129,0.4); }
         .service-card:hover::after { opacity: 1; }
-        .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); box-shadow: 0 20px 40px -12px rgba(30,136,229,.6); }
+        .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); box-shadow: 0 15px 30px -10px rgba(0,0,0,0.3); }
 
         .service-icon {
             width: 60px; height: 60px; border-radius: 16px;
-            background: var(--grad-primary); color: #fff;
+            background: rgba(255,255,255,0.15); color: #fff;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.3);
             display: grid; place-items: center; margin-bottom: 1.5rem;
             transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-            box-shadow: 0 12px 24px -12px rgba(30,136,229,.5);
+            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.2);
         }
-        .service-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: .65rem; color: var(--ink); }
-        .service-card p { color: var(--muted); font-size: .95rem; line-height: 1.65; }
+        .service-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: .65rem; color: #fff; }
+        .service-card p { color: rgba(255,255,255,0.85); font-size: .95rem; line-height: 1.65; margin: 0; }
 
         /* ===================== Doctor ===================== */
         .doctor-profile {
-            background: #fff; border-radius: var(--radius-xl); overflow: hidden;
-            box-shadow: var(--shadow-md); border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: 0 8px 32px rgba(15,76,129,0.08); border: 1px solid rgba(255,255,255,0.8);
             display: grid; grid-template-columns: 1fr; gap: 0;
         }
         @media (min-width: 900px){ .doctor-profile { grid-template-columns: 360px 1fr; } }
@@ -391,8 +397,9 @@
 
         /* ===================== Facilities ===================== */
         .facility-card {
-            border-radius: var(--radius-lg); overflow: hidden; background: #fff;
-            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-lg); overflow: hidden; 
+            box-shadow: 0 8px 32px rgba(15,76,129,0.08); border: 1px solid rgba(255,255,255,0.8);
             transition: all .4s var(--ease);
         }
         .facility-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
@@ -423,8 +430,9 @@
 
         /* ===================== Testimonials ===================== */
         .testimonial-card {
-            background: #fff; border-radius: var(--radius-lg); padding: 2rem;
-            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-lg); padding: 2rem;
+            box-shadow: 0 8px 32px rgba(15,76,129,0.08); border: 1px solid rgba(255,255,255,0.8);
             transition: all .35s var(--ease); position: relative; height: 100%;
         }
         .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
@@ -479,8 +487,9 @@
         .appt-split {
             display: grid; grid-template-columns: 1fr; gap: 0;
             border-radius: var(--radius-xl); overflow: hidden;
-            box-shadow: var(--shadow-lg); background: #fff;
-            border: 1px solid var(--border);
+            box-shadow: 0 8px 32px rgba(15,76,129,0.08); background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.8);
         }
         @media (min-width: 992px){ .appt-split { grid-template-columns: 380px 1fr; } }
         .appt-info {
@@ -637,8 +646,8 @@
                     <p>Eye Hospital</p>
                 </div>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="color: var(--primary);">
+                <i data-lucide="menu" width="28" height="28"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
@@ -710,11 +719,7 @@
             </div>
         </div>
 
-        <div class="scroll-indicator" aria-hidden="true">
-            <svg class="scroll-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" />
-            </svg>
-        </div>
+
     </section>
 
     <!-- About -->
@@ -895,7 +900,7 @@
 
                 <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
                     <div class="facility-media">
-                        <a href="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laser Room"></a>
+                        <a href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laser Room"></a>
                         <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
                     </div>
                     <div class="facility-info"><h3>Laser Room</h3><p class="doctor-specialty">Advanced Laser Technology</p></div>
