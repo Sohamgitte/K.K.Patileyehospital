@@ -617,6 +617,20 @@
         .reveal.in { opacity: 1; transform: translateY(0); }
 
         /* ===================== Responsive ===================== */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: rgba(255,255,255,0.95);
+                backdrop-filter: blur(16px);
+                border-radius: 12px;
+                padding: 1rem;
+                margin-top: 0.5rem;
+                box-shadow: 0 15px 35px rgba(15,76,129,0.15);
+                border: 1px solid rgba(228,236,246,0.9);
+            }
+            .navbar-nav { text-align: center; }
+            .nav-item { margin-bottom: 0.5rem; }
+            .nav-item .btn { width: 100%; margin-top: 0.5rem; }
+        }
         @media (max-width: 576px) {
             .section-padding { padding: 3.5rem 1rem; }
             .navbar-brand-text h1 { font-size: .92rem; }
@@ -636,7 +650,7 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
-        <div class="container-custom d-flex align-items-center w-100 px-3 px-lg-0">
+        <div class="container-custom d-flex flex-wrap align-items-center justify-content-between w-100 px-3 px-lg-0">
             <a class="navbar-brand d-flex align-items-center" href="#home">
                 <div class="navbar-logo me-3">
                     <img src="logo.png" alt="KK PATIL PALASKAR EYE HOSPITAL Logo">
