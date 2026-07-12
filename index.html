@@ -1,0 +1,1407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KK Patil Palaskar Eye Hospital - Your Vision, Our Responsibility</title>
+    <meta name="description" content="KK Patil Palaskar Eye Hospital provides comprehensive eye care services with 20+ years of experience. Expert doctors, advanced technology, and compassionate care." />
+    <meta name="author" content="KK Patil Palaskar Eye Hospital" />
+
+    <meta property="og:title" content="KK Patil Palaskar Eye Hospital - Your Vision, Our Responsibility" />
+    <meta property="og:description" content="KK Patil Palaskar Eye Hospital provides comprehensive eye care services with 20+ years of experience. Expert doctors, advanced technology, and compassionate care." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kkpatilpalaskareyehospital" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <!-- Google Fonts: Manrope (headings) + Poppins (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ===================== Design System ===================== */
+        :root {
+            --primary: #0F4C81;
+            --primary-2: #1E88E5;
+            --accent: #4FC3F7;
+            --primary-foreground: #ffffff;
+            --bg: #F8FBFF;
+            --surface: #ffffff;
+            --ink: #0B2A46;
+            --ink-2: #1f3b5f;
+            --muted: #5b6b82;
+            --border: #E4ECF6;
+            --secondary: #EEF5FD;
+
+            --grad-primary: linear-gradient(135deg, #0F4C81 0%, #1E88E5 55%, #4FC3F7 100%);
+            --grad-soft: linear-gradient(135deg, #EAF3FD 0%, #F8FBFF 100%);
+            --grad-hero: radial-gradient(1200px 600px at 15% 20%, rgba(79,195,247,.35), transparent 60%),
+                         radial-gradient(900px 500px at 85% 30%, rgba(30,136,229,.35), transparent 60%),
+                         linear-gradient(180deg, #EAF3FD 0%, #F8FBFF 100%);
+
+            --shadow-sm: 0 1px 2px rgba(15,76,129,.06), 0 1px 3px rgba(15,76,129,.05);
+            --shadow-md: 0 8px 20px -8px rgba(15,76,129,.18), 0 2px 6px rgba(15,76,129,.06);
+            --shadow-lg: 0 30px 60px -20px rgba(15,76,129,.28), 0 10px 25px -10px rgba(15,76,129,.15);
+            --shadow-glow: 0 20px 60px -15px rgba(30,136,229,.45);
+
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 28px;
+
+            --ease: cubic-bezier(.2,.7,.2,1);
+        }
+
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body {
+            font-family: 'Poppins', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1,h2,h3,h4,h5 { font-family: 'Manrope', sans-serif; color: var(--ink); letter-spacing: -0.02em; font-weight: 700; }
+        a { color: var(--primary-2); }
+
+        ::selection { background: rgba(30,136,229,.2); }
+
+        /* ===================== Layout ===================== */
+        .section-padding { padding: 5rem 1.25rem; }
+        @media (min-width: 768px){ .section-padding { padding: 7rem 2rem; } }
+        .container-custom { max-width: 1240px; margin: 0 auto; }
+
+        /* ===================== Scroll progress bar ===================== */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--grad-primary); z-index: 1100;
+            transition: width .1s linear;
+            box-shadow: 0 0 12px rgba(79,195,247,.6);
+        }
+
+        /* ===================== Navbar ===================== */
+        .navbar-custom {
+            transition: all .35s var(--ease);
+            padding: 1rem 0;
+            background: rgba(255,255,255,0.55) !important;
+            backdrop-filter: saturate(180%) blur(18px);
+            -webkit-backdrop-filter: saturate(180%) blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,.5);
+        }
+        .navbar-custom.scrolled {
+            padding: .55rem 0;
+            background: rgba(255,255,255,0.82) !important;
+            box-shadow: 0 8px 30px rgba(15,76,129,.08);
+            border-bottom-color: rgba(228,236,246,.9);
+        }
+        .navbar-logo {
+            width: 44px; height: 44px; background: #fff; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--shadow-sm); overflow: hidden;
+        }
+        .navbar-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .navbar-brand-text h1 { font-size: 1.05rem; font-weight: 800; color: var(--primary); margin: 0; letter-spacing: -.02em; }
+        .navbar-brand-text p { font-size: .72rem; color: var(--muted); margin: 0; letter-spacing: .12em; text-transform: uppercase; }
+
+        .nav-link {
+            position: relative;
+            color: var(--ink) !important;
+            font-weight: 500;
+            padding: .5rem .9rem !important;
+            border-radius: 8px;
+            transition: color .25s var(--ease);
+            font-size: .95rem;
+        }
+        .nav-link::after {
+            content:""; position:absolute; left:.9rem; right:.9rem; bottom: 4px; height: 2px;
+            background: var(--grad-primary); border-radius: 2px;
+            transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+        }
+        .nav-link:hover { color: var(--primary) !important; }
+        .nav-link:hover::after,
+        .nav-link.active::after { transform: scaleX(1); }
+        .nav-link.active { color: var(--primary) !important; }
+
+        .btn-primary-custom {
+            background: var(--grad-primary);
+            border: none;
+            color: #fff !important;
+            padding: .65rem 1.35rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: .92rem;
+            box-shadow: 0 8px 24px -8px rgba(30,136,229,.6);
+            transition: transform .25s var(--ease), box-shadow .25s var(--ease), filter .25s var(--ease);
+        }
+        .btn-primary-custom:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(30,136,229,.7); filter: brightness(1.05); }
+
+        /* ===================== Hero ===================== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 6rem;
+            background: var(--grad-hero);
+            overflow: hidden;
+        }
+        .hero-shape {
+            position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55;
+            pointer-events: none; animation: floatY 12s ease-in-out infinite;
+        }
+        .hero-shape.s1 { width: 420px; height: 420px; background: #4FC3F7; top: -80px; left: -100px; }
+        .hero-shape.s2 { width: 520px; height: 520px; background: #1E88E5; bottom: -160px; right: -140px; animation-delay: -4s; opacity: .45; }
+        .hero-shape.s3 { width: 260px; height: 260px; background: #A5D8FF; top: 40%; left: 45%; animation-delay: -8s; opacity: .35; }
+
+        .hero-decor {
+            position: absolute; inset: 0; pointer-events: none; opacity: .35;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(15,76,129,.18) 1px, transparent 0);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%);
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            padding: .4rem .9rem; border-radius: 999px;
+            background: rgba(255,255,255,.7);
+            border: 1px solid rgba(15,76,129,.12);
+            color: var(--primary); font-weight: 600; font-size: .82rem;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.4rem;
+        }
+        .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.2); }
+
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+            line-height: 1.05;
+            font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 1.4rem;
+            letter-spacing: -.035em;
+        }
+        .hero-content h1 .grad {
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.075rem;
+            color: var(--ink-2);
+            max-width: 620px;
+            margin-bottom: 2rem;
+            opacity: .92;
+        }
+
+        .btn-hero-primary {
+            background: var(--grad-primary);
+            color: #fff !important;
+            border: none;
+            padding: .95rem 1.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 999px;
+            box-shadow: var(--shadow-glow);
+            transition: transform .25s var(--ease), box-shadow .25s var(--ease), filter .25s var(--ease);
+            display: inline-flex; align-items: center; gap: .55rem;
+        }
+        .btn-hero-primary:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 25px 60px -15px rgba(30,136,229,.55); color: #fff !important; }
+
+        .btn-hero-outline {
+            background: rgba(255,255,255,.85);
+            color: var(--primary) !important;
+            border: 1px solid rgba(15,76,129,.15);
+            padding: .95rem 1.7rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            transition: all .25s var(--ease);
+            display: inline-flex; align-items: center; gap: .55rem;
+        }
+        .btn-hero-outline:hover { background: #fff; border-color: var(--primary-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        /* Floating trust cards */
+        .trust-strip {
+            margin-top: 3rem; position: relative; z-index: 2;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .trust-card {
+            display: flex; align-items: center; gap: .85rem;
+            padding: 1rem 1.1rem;
+            background: rgba(255,255,255,.7);
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: var(--radius);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--shadow-sm);
+            transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+        }
+        .trust-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .trust-card .ico {
+            width: 42px; height: 42px; border-radius: 12px;
+            display: grid; place-items: center; color: #fff;
+            background: var(--grad-primary);
+            box-shadow: 0 8px 18px -8px rgba(30,136,229,.6);
+            flex-shrink: 0;
+        }
+        .trust-card .t { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--ink); font-size: 1rem; line-height: 1.1; }
+        .trust-card .s { font-size: .78rem; color: var(--muted); }
+
+        .scroll-indicator {
+            position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%);
+            z-index: 3; pointer-events: none;
+        }
+        @keyframes arrow-bob { 0%,100% { transform: translateX(-50%) translateY(0);} 50% { transform: translateX(-50%) translateY(-8px);} }
+        .scroll-indicator .scroll-arrow { width: 34px; height: 34px; display: block; animation: arrow-bob 1.8s infinite ease-in-out; }
+        .scroll-indicator .scroll-arrow path { stroke: var(--primary); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+
+        @keyframes floatY { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-30px);} }
+
+        /* ===================== Section titles ===================== */
+        .section-title { text-align: center; margin-bottom: 3.5rem; }
+        .section-title .eyebrow {
+            display: inline-block; padding: .35rem .85rem;
+            background: rgba(30,136,229,.1); color: var(--primary);
+            border-radius: 999px; font-weight: 600; font-size: .78rem;
+            letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .section-title h2 {
+            font-size: clamp(2rem, 3.6vw, 3rem);
+            font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 1rem;
+            letter-spacing: -.03em;
+        }
+        .title-divider { width: 72px; height: 4px; background: var(--grad-primary); margin: 0 auto 1.4rem; border-radius: 4px; }
+        .section-title p { font-size: 1.075rem; color: var(--muted); max-width: 640px; margin: 0 auto; }
+
+        /* ===================== About / Stats ===================== */
+        .bg-secondary-light {
+            background: linear-gradient(180deg, #F8FBFF 0%, #EAF3FD 100%);
+            position: relative;
+        }
+        .stat-card {
+            background: #fff; padding: 2.25rem 1.75rem; border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            text-align: center; transition: all .4s var(--ease); height: 100%;
+            position: relative; overflow: hidden;
+        }
+        .stat-card::before {
+            content:""; position:absolute; inset: 0; opacity: 0;
+            background: radial-gradient(500px 200px at 50% -20%, rgba(79,195,247,.35), transparent 60%);
+            transition: opacity .4s var(--ease);
+        }
+        .stat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-8px); border-color: rgba(30,136,229,.25); }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-icon {
+            width: 68px; height: 68px; border-radius: 18px;
+            background: var(--grad-primary);
+            display: grid; place-items: center; margin: 0 auto 1.4rem;
+            color: #fff; box-shadow: 0 15px 30px -12px rgba(30,136,229,.55);
+            position: relative; z-index: 1;
+        }
+        .stat-number {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.75rem; font-weight: 800;
+            background: var(--grad-primary);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            margin-bottom: .4rem; letter-spacing: -.03em;
+            position: relative; z-index: 1;
+        }
+        .stat-label { font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: .35rem; position: relative; z-index: 1; }
+        .stat-description { color: var(--muted); font-size: .95rem; position: relative; z-index: 1; }
+
+        /* ===================== Services ===================== */
+        .service-card {
+            background: #fff; border-radius: var(--radius-lg); padding: 2rem 1.75rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+            transition: all .4s var(--ease); height: 100%; position: relative; overflow: hidden;
+        }
+        .service-card::after {
+            content:""; position:absolute; inset:0; border-radius: inherit; padding: 1px;
+            background: var(--grad-primary);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            opacity: 0; transition: opacity .4s var(--ease);
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow); }
+        .service-card:hover::after { opacity: 1; }
+        .service-card:hover .service-icon { transform: scale(1.08) rotate(-4deg); box-shadow: 0 20px 40px -12px rgba(30,136,229,.6); }
+
+        .service-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            background: var(--grad-primary); color: #fff;
+            display: grid; place-items: center; margin-bottom: 1.5rem;
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+            box-shadow: 0 12px 24px -12px rgba(30,136,229,.5);
+        }
+        .service-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: .65rem; color: var(--ink); }
+        .service-card p { color: var(--muted); font-size: .95rem; line-height: 1.65; }
+
+        /* ===================== Doctor ===================== */
+        .doctor-profile {
+            background: #fff; border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-md); border: 1px solid var(--border);
+            display: grid; grid-template-columns: 1fr; gap: 0;
+        }
+        @media (min-width: 900px){ .doctor-profile { grid-template-columns: 360px 1fr; } }
+        .doctor-profile .img-wrap {
+            position: relative; min-height: 320px;
+            background: var(--grad-primary);
+            overflow: hidden;
+        }
+        .doctor-profile .img-wrap img {
+            width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;
+        }
+        .doctor-profile .img-wrap::after {
+            content:""; position:absolute; inset:0;
+            background: linear-gradient(180deg, transparent 40%, rgba(15,76,129,.55));
+        }
+        .doctor-profile .content { padding: 2.5rem 2rem; }
+        .doctor-profile .content .badge-role {
+            display: inline-block; padding: .35rem .85rem; background: rgba(30,136,229,.1);
+            color: var(--primary); border-radius: 999px; font-size: .78rem; font-weight: 600;
+            letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .doctor-profile h3 { font-size: 1.8rem; margin-bottom: .35rem; }
+        .doctor-qualification { color: var(--muted); font-size: .95rem; margin-bottom: .35rem; }
+        .doctor-specialty { color: var(--primary-2); font-weight: 600; margin-bottom: 1rem; }
+        .doctor-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+        .doctor-stat {
+            padding: .9rem; background: var(--secondary); border-radius: 12px; text-align: center;
+        }
+        .doctor-stat .n { font-family: 'Manrope', sans-serif; font-weight: 800; color: var(--primary); font-size: 1.35rem; }
+        .doctor-stat .l { font-size: .78rem; color: var(--muted); }
+
+        /* ===================== Facilities ===================== */
+        .facility-card {
+            border-radius: var(--radius-lg); overflow: hidden; background: #fff;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            transition: all .4s var(--ease);
+        }
+        .facility-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .facility-media {
+            position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--grad-primary);
+        }
+        .facility-media img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform .7s var(--ease); cursor: zoom-in;
+        }
+        .facility-card:hover .facility-media img { transform: scale(1.08); }
+        .facility-media::after {
+            content:""; position:absolute; inset:0; opacity: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(15,76,129,.55));
+            transition: opacity .35s var(--ease);
+        }
+        .facility-card:hover .facility-media::after { opacity: 1; }
+        .facility-media .zoom-badge {
+            position: absolute; top: 12px; right: 12px; width: 36px; height: 36px;
+            border-radius: 50%; background: rgba(255,255,255,.9); display: grid; place-items: center;
+            color: var(--primary); opacity: 0; transform: translateY(-6px);
+            transition: all .35s var(--ease); z-index: 2;
+        }
+        .facility-card:hover .zoom-badge { opacity: 1; transform: translateY(0); }
+        .facility-info { padding: 1.1rem 1.25rem; }
+        .facility-info h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+        .facility-info .doctor-specialty { color: var(--muted); font-weight: 500; font-size: .88rem; margin: 0; }
+
+        /* ===================== Testimonials ===================== */
+        .testimonial-card {
+            background: #fff; border-radius: var(--radius-lg); padding: 2rem;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+            transition: all .35s var(--ease); position: relative; height: 100%;
+        }
+        .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .review-head { display: flex; align-items: center; gap: .85rem; margin-bottom: 1rem; }
+        .avatar {
+            width: 46px; height: 46px; border-radius: 50%;
+            background: var(--grad-primary); color: #fff;
+            display: grid; place-items: center; font-weight: 700; font-family: 'Manrope', sans-serif;
+            box-shadow: var(--shadow-sm);
+        }
+        .review-head .who { line-height: 1.1; }
+        .review-head .who h4 { font-size: 1rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: .35rem; }
+        .verified {
+            display: inline-flex; width: 16px; height: 16px; border-radius: 50%;
+            background: #1E88E5; color: #fff; align-items: center; justify-content: center;
+        }
+        .verified svg { width: 10px; height: 10px; }
+        .testimonial-location { margin: 0; font-size: .82rem; color: var(--muted); }
+        .rating { display: flex; gap: .15rem; margin-bottom: .9rem; }
+        .star-icon { width: 18px; height: 18px; color: #FFB400; fill: #FFB400; }
+        .testimonial-text { color: var(--ink-2); font-size: .95rem; line-height: 1.7; }
+        .g-badge {
+            position: absolute; top: 1.1rem; right: 1.1rem;
+            display: inline-flex; align-items: center; gap: .3rem;
+            padding: .25rem .55rem; border-radius: 999px;
+            background: #F1F6FE; color: var(--primary); font-size: .7rem; font-weight: 700;
+            letter-spacing: .05em;
+        }
+        .quote-icon { display: none; }
+
+        /* Simple carousel */
+        .t-track-wrap { overflow: hidden; }
+        .t-track {
+            display: flex; gap: 1.25rem; transition: transform .6s var(--ease);
+            will-change: transform;
+        }
+        .t-slide { flex: 0 0 100%; }
+        @media (min-width: 768px) { .t-slide { flex: 0 0 calc(50% - .625rem); } }
+        @media (min-width: 1024px) { .t-slide { flex: 0 0 calc(33.333% - .833rem); } }
+        .t-controls { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: 2rem; }
+        .t-btn {
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: #fff; color: var(--primary); display: grid; place-items: center;
+            cursor: pointer; transition: all .25s var(--ease); box-shadow: var(--shadow-sm);
+        }
+        .t-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-2px); }
+        .t-dots { display: flex; gap: .4rem; }
+        .t-dot { width: 8px; height: 8px; border-radius: 999px; background: #C6D6EA; border: none; padding: 0; transition: all .25s var(--ease); cursor: pointer; }
+        .t-dot.active { width: 28px; background: var(--grad-primary); }
+
+        /* ===================== Appointment ===================== */
+        .appt-split {
+            display: grid; grid-template-columns: 1fr; gap: 0;
+            border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-lg); background: #fff;
+            border: 1px solid var(--border);
+        }
+        @media (min-width: 992px){ .appt-split { grid-template-columns: 380px 1fr; } }
+        .appt-info {
+            background: var(--grad-primary); color: #fff; padding: 2.5rem 2rem;
+            position: relative; overflow: hidden;
+        }
+        .appt-info::before {
+            content:""; position:absolute; width: 300px; height: 300px; border-radius: 50%;
+            background: rgba(255,255,255,.08); top: -100px; right: -100px;
+        }
+        .appt-info::after {
+            content:""; position:absolute; width: 200px; height: 200px; border-radius: 50%;
+            background: rgba(255,255,255,.06); bottom: -80px; left: -60px;
+        }
+        .appt-info h3 { color: #fff; font-size: 1.6rem; margin-bottom: .75rem; position: relative; }
+        .appt-info > p { opacity: .9; margin-bottom: 2rem; position: relative; }
+        .appt-info .item { display: flex; gap: .85rem; margin-bottom: 1.25rem; position: relative; }
+        .appt-info .item .ico {
+            width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,.15);
+            display: grid; place-items: center; flex-shrink: 0; color: #fff;
+        }
+        .appt-info .item .t { font-weight: 600; font-size: .95rem; }
+        .appt-info .item .s { opacity: .85; font-size: .85rem; }
+        .appt-form { padding: 2.5rem 2rem; }
+        .form-label { font-weight: 500; color: var(--ink); margin-bottom: .4rem; font-size: .9rem; }
+        .form-control, .form-select {
+            border: 1px solid var(--border); border-radius: 12px; padding: .8rem .95rem;
+            font-family: 'Poppins', sans-serif; font-size: .95rem; background: #fff;
+            transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-2);
+            box-shadow: 0 0 0 4px rgba(30,136,229,.12);
+        }
+        .btn-appointment {
+            background: var(--grad-primary); color: #fff; border: none;
+            padding: 1rem 1.5rem; font-size: 1rem; font-weight: 600;
+            border-radius: 999px; width: 100%;
+            box-shadow: var(--shadow-glow);
+            transition: all .25s var(--ease);
+            display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+        }
+        .btn-appointment:hover { transform: translateY(-2px); filter: brightness(1.05); color: #fff; }
+
+        /* ===================== Footer ===================== */
+        .footer {
+            background: linear-gradient(180deg, #0B2A46 0%, #0F4C81 100%);
+            color: #fff; position: relative; overflow: hidden;
+        }
+        .footer::before {
+            content:""; position:absolute; inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.06) 1px, transparent 0);
+            background-size: 24px 24px; opacity: .5; pointer-events: none;
+        }
+        .footer a { color: rgba(255,255,255,.85); text-decoration: none; transition: color .2s ease; }
+        .footer a:hover { color: #fff; }
+        .footer h3, .footer h4 { color: #fff; margin-bottom: 1.25rem; font-size: 1.1rem; }
+        .footer .list-unstyled li { padding: .25rem 0; }
+        .footer-logo {
+            width: 46px; height: 46px; background: #fff; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .hours-card, .emergency-card {
+            background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+            border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .hours-card .row-l { display: flex; justify-content: space-between; font-size: .9rem; padding: .2rem 0; opacity: .9; }
+        .emergency-card { border-color: rgba(255,120,120,.3); background: rgba(255,90,90,.08); }
+        .emergency-card .em-t { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #ffb4b4; font-weight: 700; }
+        .emergency-card .em-n { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 1.25rem; margin-top: .15rem; }
+        .whatsapp-cta {
+            display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem;
+            background: #25D366; color: #fff !important; border-radius: 999px; font-weight: 600; font-size: .88rem;
+            box-shadow: 0 10px 20px -8px rgba(37,211,102,.55); transition: transform .2s ease;
+        }
+        .whatsapp-cta:hover { transform: translateY(-2px); }
+        .social-icon {
+            width: 38px; height: 38px; background-color: rgba(255,255,255,.08);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all .25s var(--ease); border: 1px solid rgba(255,255,255,.08); color: #fff;
+        }
+        .social-icon:hover { background: var(--grad-primary); border-color: transparent; transform: translateY(-3px); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12); padding: 1.25rem 0;
+            font-size: .88rem; opacity: .9; position: relative;
+        }
+        .footer a.foot-serv { color: rgba(255,255,255,.85); }
+
+        /* Map card */
+        .map-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,.1); }
+        .map-card iframe { display: block; }
+
+        /* ===================== Floating buttons ===================== */
+        .float-btn {
+            position: fixed; z-index: 1050; width: 54px; height: 54px; border-radius: 50%;
+            display: grid; place-items: center; color: #fff; text-decoration: none;
+            box-shadow: 0 15px 30px -8px rgba(0,0,0,.25); transition: transform .25s var(--ease), opacity .25s var(--ease);
+            border: none; cursor: pointer;
+        }
+        .float-btn:hover { transform: translateY(-3px) scale(1.05); color: #fff; }
+        .whatsapp-float { right: 22px; bottom: 22px; background: #25D366; }
+        .whatsapp-float::after {
+            content:""; position:absolute; inset:-6px; border-radius: 50%;
+            background: rgba(37,211,102,.4); z-index: -1;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); opacity: .6;} 100% { transform: scale(1.6); opacity: 0;} }
+        .back-top {
+            right: 22px; bottom: 90px; background: var(--grad-primary);
+            opacity: 0; pointer-events: none;
+        }
+        .back-top.show { opacity: 1; pointer-events: auto; }
+
+        /* ===================== Lightbox ===================== */
+        .lightbox { display: none; position: fixed; z-index: 9999; padding-top: 60px; inset: 0; overflow: auto; background: rgba(11,42,70,.92); backdrop-filter: blur(6px); }
+        .lightbox-content { margin: auto; display: block; max-width: 95vw; max-height: 90vh; width: auto; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300; cursor: pointer; transition: transform .2s; line-height: 1; }
+        .lightbox-close:hover { transform: rotate(90deg); }
+        .lightbox-link img { cursor: zoom-in; }
+
+        /* ===================== Reveal animations ===================== */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+
+        /* ===================== Responsive ===================== */
+        @media (max-width: 576px) {
+            .section-padding { padding: 3.5rem 1rem; }
+            .navbar-brand-text h1 { font-size: .92rem; }
+            .navbar-brand-text p { font-size: .62rem; }
+            .hero-section { padding: 7rem 0 4rem; min-height: auto; }
+            .btn-hero-primary, .btn-hero-outline { width: 100%; justify-content: center; }
+            .doctor-profile .content { padding: 1.75rem 1.25rem; }
+            .appt-info, .appt-form { padding: 1.75rem 1.25rem; }
+            .footer h3, .footer h4 { font-size: 1.05rem; }
+        }
+        footer a { word-break: break-word; overflow-wrap: anywhere; }
+    </style>
+</head>
+<body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="navbar">
+        <div class="container-custom d-flex align-items-center w-100 px-3 px-lg-0">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <div class="navbar-logo me-3">
+                    <img src="logo.png" alt="KK PATIL PALASKAR EYE HOSPITAL Logo">
+                </div>
+                <div class="navbar-brand-text">
+                    <h1>K.K PATIL PALASKAR</h1>
+                    <p>Eye Hospital</p>
+                </div>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#appointment">Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#appointment" class="btn btn-primary-custom">Book Appointment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero-section">
+        <div class="hero-shape s1"></div>
+        <div class="hero-shape s2"></div>
+        <div class="hero-shape s3"></div>
+        <div class="hero-decor"></div>
+
+        <div class="hero-content container-custom px-3">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 reveal">
+                    <span class="hero-eyebrow"><span class="dot"></span> Now accepting new patients</span>
+                    <h1>Your Vision,<br><span class="grad">Our Responsibility.</span></h1>
+                    <p>At <strong>K.K Patil Palaskar Eye Hospital</strong>, we combine advanced technology with expert care to protect and enhance your vision — precise diagnosis, personalized treatment, and world-class eye care at every step.</p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#appointment" class="btn btn-hero-primary">
+                            <i data-lucide="calendar-check" width="18" height="18"></i>
+                            Book Appointment
+                        </a>
+                        <a href="#services" class="btn btn-hero-outline">
+                            <i data-lucide="stethoscope" width="18" height="18"></i>
+                            View Services
+                        </a>
+                    </div>
+
+                    <div class="trust-strip">
+                        <div class="trust-card">
+                            <div class="ico"><i data-lucide="users" width="20" height="20"></i></div>
+                            <div><div class="t">5000+</div><div class="s">Happy Patients</div></div>
+                        </div>
+                        <div class="trust-card">
+                            <div class="ico"><i data-lucide="award" width="20" height="20"></i></div>
+                            <div><div class="t">20+ Years</div><div class="s">Of Experience</div></div>
+                        </div>
+                        <div class="trust-card">
+                            <div class="ico"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                            <div><div class="t">Certified</div><div class="s">Eye Specialists</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 reveal" style="transition-delay: 0.2s; position: relative;">
+                    <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 8px solid #fff;">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Eye Care Hospital" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 4/5; transform: scale(1.02);">
+                    </div>
+                    <div style="position: absolute; bottom: 30px; left: -30px; background: #fff; padding: 1rem 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 1rem; animation: floatY 6s ease-in-out infinite;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--grad-primary); color: #fff; display: grid; place-items: center;"><i data-lucide="eye" width="24" height="24"></i></div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 1.25rem; color: var(--ink); line-height: 1.1;">20/20</div>
+                            <div style="font-size: 0.85rem; color: var(--muted); font-weight: 600;">Perfect Vision</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+            <svg class="scroll-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-padding bg-secondary-light">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">About the hospital</span>
+                <h2>K.K Patil Palaskar Eye Hospital</h2>
+                <div class="title-divider"></div>
+                <p>High-quality, technology-driven eye care with a commitment to precision and patient comfort — trusted treatment for every patient who walks through our doors.</p>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="stat-card reveal">
+                        <div class="stat-icon"><i data-lucide="award" width="30" height="30"></i></div>
+                        <div class="stat-number" data-count="20" data-suffix="+">0+</div>
+                        <div class="stat-label">Years of Expertise</div>
+                        <p class="stat-description">Decades of trusted eye care experience</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card reveal">
+                        <div class="stat-icon"><i data-lucide="users" width="30" height="30"></i></div>
+                        <div class="stat-number" data-count="5000" data-suffix="+">0+</div>
+                        <div class="stat-label">Happy Patients</div>
+                        <p class="stat-description">Restored vision, restored lives</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card reveal">
+                        <div class="stat-icon"><i data-lucide="eye" width="30" height="30"></i></div>
+                        <div class="stat-number" data-count="15" data-suffix="+">0+</div>
+                        <div class="stat-label">Advanced Procedures</div>
+                        <p class="stat-description">Backed by modern diagnostic technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-padding">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">What we offer</span>
+                <h2>Our Services</h2>
+                <div class="title-divider"></div>
+                <p>Comprehensive eye care solutions tailored to meet your individual needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="eye" width="28" height="28"></i></div>
+                    <h3>Comprehensive Eye Checkup</h3>
+                    <p>Complete eye examination with advanced diagnostic tools to assess your vision and eye health.</p>
+                </div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="sparkles" width="28" height="28"></i></div>
+                    <h3>Cataract Surgery</h3>
+                    <p>Advanced phacoemulsification technique with premium IOL options for clearer vision.</p>
+                </div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="zap" width="28" height="28"></i></div>
+                    <h3>LASIK / Laser Vision Correction</h3>
+                    <p>Bladeless LASIK surgery for permanent freedom from glasses and contact lenses.</p>
+                </div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="shield" width="28" height="28"></i></div>
+                    <h3>Glaucoma Treatment</h3>
+                    <p>Early detection and management to prevent vision loss from increased eye pressure.</p>
+                </div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="heart-pulse" width="28" height="28"></i></div>
+                    <h3>Retina Care</h3>
+                    <p>Specialized treatment for diabetic retinopathy, macular degeneration, and retinal detachment.</p>
+                </div></div>
+                <div class="col-md-6 col-lg-4"><div class="service-card reveal">
+                    <div class="service-icon"><i data-lucide="baby" width="28" height="28"></i></div>
+                    <h3>Pediatric Eye Care</h3>
+                    <p>Expert care for children's eye conditions including squint, amblyopia, and refractive errors.</p>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor -->
+    <section id="doctors" class="section-padding bg-secondary-light">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">Meet the team</span>
+                <h2>Our Expert Doctor</h2>
+                <div class="title-divider"></div>
+                <p>A highly qualified ophthalmologist dedicated to your eye health</p>
+            </div>
+
+            <div class="doctor-profile reveal">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. VILAS NIKAM">
+                </div>
+                <div class="content">
+                    <span class="badge-role">Lead Ophthalmologist</span>
+                    <h3>Dr. VILAS NIKAM</h3>
+                    <p class="doctor-qualification">MBBS, DOMS, MS (Ophthalmology)</p>
+                    <p class="doctor-specialty">Cataract • Retina • General Ophthalmology</p>
+                    <p style="color: var(--muted); line-height: 1.75;">
+                        <strong>Dr. VILAS NIKAM</strong> is committed to delivering precise diagnosis, advanced treatment, and compassionate care. He specializes in modern eye-care technology and ensures safe, personalized treatment for every patient.
+                    </p>
+                    <div class="doctor-stats">
+                        <div class="doctor-stat"><div class="n">20+</div><div class="l">Years Exp.</div></div>
+                        <div class="doctor-stat"><div class="n">5000+</div><div class="l">Surgeries</div></div>
+                        <div class="doctor-stat"><div class="n">4.9★</div><div class="l">Patient Rating</div></div>
+                    </div>
+                    <a href="#appointment" class="btn btn-primary-custom">
+                        Book Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section id="facilities" class="section-padding">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">Infrastructure</span>
+                <h2>Our Facilities</h2>
+                <div class="title-divider"></div>
+                <p>Explore our fully equipped and patient-friendly infrastructure.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="IMG_3320 (1).jpg" class="lightbox-link"><img src="IMG_3320 (1).jpg" alt="Operation Theatre"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Operation Theatre</h3><p class="doctor-specialty">Modular & Fully Sterile</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="img2.jpg" class="lightbox-link"><img src="img2.jpg" alt="Optical Store"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Optical Store</h3><p class="doctor-specialty">Branded Frames & Lenses</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Diagnostic Center"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Diagnostic Center</h3><p class="doctor-specialty">OCT, Biometry, Perimetry</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="IMG4.jpg" class="lightbox-link"><img src="IMG4.jpg" alt="Waiting Lounge"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Waiting Lounge</h3><p class="doctor-specialty">Comfortable & Spacious</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="IMG5.jpg" class="lightbox-link"><img src="IMG5.jpg" alt="Reception Area"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Reception Area</h3><p class="doctor-specialty">Dedicated Help Desk</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pharmacy"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Pharmacy</h3><p class="doctor-specialty">All Eye Medicines Available</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laser Room"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Laser Room</h3><p class="doctor-specialty">Advanced Laser Technology</p></div>
+                </div></div>
+
+                <div class="col-sm-6 col-lg-3"><div class="facility-card reveal">
+                    <div class="facility-media">
+                        <a href="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lightbox-link"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Counselling Room"></a>
+                        <div class="zoom-badge"><i data-lucide="zoom-in" width="18" height="18"></i></div>
+                    </div>
+                    <div class="facility-info"><h3>Counselling Room</h3><p class="doctor-specialty">Patient Guidance & Support</p></div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-padding bg-secondary-light">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">Patient Stories</span>
+                <h2>Patient Testimonials</h2>
+                <div class="title-divider"></div>
+                <p>Read what our patients say about their experience at K.K Patil Palaskar Eye Hospital</p>
+            </div>
+
+            <div class="t-track-wrap reveal">
+                <div class="t-track" id="tTrack">
+                    <div class="t-slide"><div class="testimonial-card">
+                        <span class="g-badge"><i data-lucide="badge-check" width="12" height="12"></i> Google Review</span>
+                        <div class="review-head">
+                            <div class="avatar">CB</div>
+                            <div class="who">
+                                <h4>Chinmay Bhatlawande <span class="verified" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span></h4>
+                                <p class="testimonial-location">Chattrapati Sambhajinagar</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="testimonial-text">"My cataract surgery at <strong>K.K Patil Palaskar Eye Hospital</strong> was a life-changing experience. Dr. VILAS NIKAM and his team were professional, caring, and the results exceeded my expectations. I can see clearly again!"</p>
+                    </div></div>
+
+                    <div class="t-slide"><div class="testimonial-card">
+                        <span class="g-badge"><i data-lucide="badge-check" width="12" height="12"></i> Google Review</span>
+                        <div class="review-head">
+                            <div class="avatar">SD</div>
+                            <div class="who">
+                                <h4>Sunita Desai <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span></h4>
+                                <p class="testimonial-location">Chattrapati Sambhajinagar</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="testimonial-text">"I was nervous about LASIK surgery, but the doctors at <strong>K.K Patil Palaskar Eye Hospital</strong> made me feel comfortable throughout. It's been 6 months and I still can't believe I don't need glasses anymore!"</p>
+                    </div></div>
+
+                    <div class="t-slide"><div class="testimonial-card">
+                        <span class="g-badge"><i data-lucide="badge-check" width="12" height="12"></i> Google Review</span>
+                        <div class="review-head">
+                            <div class="avatar">PS</div>
+                            <div class="who">
+                                <h4>Prathamesh Sontakke <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span></h4>
+                                <p class="testimonial-location">Chattrapati Sambhajinagar</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="testimonial-text">"The eye care team helped my daughter with her vision problems. They were patient and gentle with her. Now she loves reading and studying without any difficulties."</p>
+                    </div></div>
+
+                    <div class="t-slide"><div class="testimonial-card">
+                        <span class="g-badge"><i data-lucide="badge-check" width="12" height="12"></i> Google Review</span>
+                        <div class="review-head">
+                            <div class="avatar">NR</div>
+                            <div class="who">
+                                <h4>Neha Reddy <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span></h4>
+                                <p class="testimonial-location">Bangalore</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="testimonial-text">"Regular checkups at <strong>K.K Patil Palaskar Eye Hospital</strong> helped detect my glaucoma early. Thanks to their advanced treatment, my vision is stable. The staff is always welcoming and professional."</p>
+                    </div></div>
+
+                    <div class="t-slide"><div class="testimonial-card">
+                        <span class="g-badge"><i data-lucide="badge-check" width="12" height="12"></i> Google Review</span>
+                        <div class="review-head">
+                            <div class="avatar">SP</div>
+                            <div class="who">
+                                <h4>Sanket Pimple <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span></h4>
+                                <p class="testimonial-location">Pune</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i><i data-lucide="star" class="star-icon"></i>
+                            <i data-lucide="star" class="star-icon"></i>
+                        </div>
+                        <p class="testimonial-text">"The retina specialist at <strong>K.K Patil Palaskar Eye Hospital</strong> saved my vision when I had diabetic retinopathy. Their expertise and state-of-the-art technology are truly world-class."</p>
+                    </div></div>
+                </div>
+            </div>
+
+            <div class="t-controls">
+                <button class="t-btn" id="tPrev" aria-label="Previous"><i data-lucide="chevron-left" width="20" height="20"></i></button>
+                <div class="t-dots" id="tDots"></div>
+                <button class="t-btn" id="tNext" aria-label="Next"><i data-lucide="chevron-right" width="20" height="20"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment -->
+    <section id="appointment" class="section-padding">
+        <div class="container-custom">
+            <div class="section-title reveal">
+                <span class="eyebrow">Book a Visit</span>
+                <h2>Book an Appointment</h2>
+                <div class="title-divider"></div>
+                <p>Schedule your visit with our expert team. We're here to help you see better.</p>
+            </div>
+
+            <div class="appt-split reveal">
+                <aside class="appt-info">
+                    <h3>Talk to our eye care experts</h3>
+                    <p>Fill in your details and we'll get back to you shortly to confirm your appointment slot.</p>
+
+                    <div class="item">
+                        <div class="ico"><i data-lucide="map-pin" width="20" height="20"></i></div>
+                        <div>
+                            <div class="t">Visit Us</div>
+                            <div class="s">First Floor, above Tasty-Biryani House, Palshi Road, Pisadevi</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ico"><i data-lucide="phone" width="20" height="20"></i></div>
+                        <div>
+                            <div class="t">Call Us</div>
+                            <div class="s"><a href="tel:+917028884649" style="color:#fff; text-decoration: none;">+91 70288 84649</a></div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ico"><i data-lucide="clock" width="20" height="20"></i></div>
+                        <div>
+                            <div class="t">Opening Hours</div>
+                            <div class="s">Mon – Sat: 10:00 AM – 8:00 PM</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ico"><i data-lucide="mail" width="20" height="20"></i></div>
+                        <div>
+                            <div class="t">Email</div>
+                            <div class="s" style="word-break: break-all;">k.kpatilpalaskarnetrarugnaseva@gmail.com</div>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="appt-form">
+                    <form id="appointmentForm" action="https://formsubmit.co/sohamgitte863@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="New Appointment Request - KK Patil Eye Hospital">
+                        <input type="hidden" name="_autoresponse" value="Thank you for booking your appointment at KK Patil Eye Hospital. Our team will contact you shortly.">
+                        <input type="hidden" name="_next" value="thankyou.html">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="name" name="fullname" placeholder="Enter your name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="service" class="form-label">Select Service *</label>
+                                <select class="form-select" id="service" name="service" required>
+                                    <option value="">Choose a service</option>
+                                    <option value="Comprehensive Eye Checkup">Comprehensive Eye Checkup</option>
+                                    <option value="Cataract Surgery">Cataract Surgery</option>
+                                    <option value="LASIK / Laser Vision Correction">LASIK / Laser Vision Correction</option>
+                                    <option value="Glaucoma Treatment">Glaucoma Treatment</option>
+                                    <option value="Retina Care">Retina Care</option>
+                                    <option value="Pediatric Eye Care">Pediatric Eye Care</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="date" class="form-label d-flex align-items-center gap-2">
+                                    <i data-lucide="calendar" width="16" height="16"></i> Preferred Date *
+                                </label>
+                                <input type="date" class="form-control" id="date" name="date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="time" class="form-label d-flex align-items-center gap-2">
+                                    <i data-lucide="clock" width="16" height="16"></i> Preferred Time *
+                                </label>
+                                <input type="time" class="form-control" id="time" name="time" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Additional Message (Optional)</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us more about your concerns or questions..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-appointment">
+                                    <i data-lucide="calendar-check" width="18" height="18"></i>
+                                    Book Appointment
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="footer">
+        <div class="section-padding" style="position: relative;">
+            <div class="container-custom">
+                <div class="row g-5">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="footer-logo me-3"><img src="logo.png" alt="K.K PATIL PALASKAR EYE HOSPITAL Logo"></div>
+                            <div>
+                                <h3 class="h5 mb-0">K.K PATIL PALASKAR</h3>
+                                <p class="small mb-0" style="opacity: 0.85; letter-spacing:.1em; text-transform: uppercase;">Eye Hospital</p>
+                            </div>
+                        </div>
+                        <p style="opacity: 0.85;">Your trusted partner in eye care, dedicated to providing world-class treatment with compassion and excellence.</p>
+
+                        <a href="https://wa.me/917028884649" class="whatsapp-cta" target="_blank" rel="noopener">
+                            <i data-lucide="message-circle" width="16" height="16"></i>
+                            Chat on WhatsApp
+                        </a>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <a href="#" class="social-icon" aria-label="Facebook"><i data-lucide="facebook" width="18" height="18"></i></a>
+                            <a href="#" class="social-icon" aria-label="Twitter"><i data-lucide="twitter" width="18" height="18"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" width="18" height="18"></i></a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn"><i data-lucide="linkedin" width="18" height="18"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <h4>Quick Links</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home">Home</a></li>
+                            <li class="mb-2"><a href="#services">Services</a></li>
+                            <li class="mb-2"><a href="#doctors">Doctors</a></li>
+                            <li class="mb-2"><a href="#testimonials">Testimonials</a></li>
+                            <li class="mb-2"><a href="#appointment">Appointment</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h4>Our Services</h4>
+                        <ul class="list-unstyled" style="opacity: 0.9;">
+                            <li class="mb-2"><a class="foot-serv" href="#services">Cataract Surgery</a></li>
+                            <li class="mb-2"><a class="foot-serv" href="#services">LASIK Surgery</a></li>
+                            <li class="mb-2"><a class="foot-serv" href="#services">Glaucoma Treatment</a></li>
+                            <li class="mb-2"><a class="foot-serv" href="#services">Retina Care</a></li>
+                            <li class="mb-2"><a class="foot-serv" href="#services">Pediatric Eye Care</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h4>Contact & Hours</h4>
+                        <div class="mb-3 d-flex gap-2 align-items-start">
+                            <i data-lucide="map-pin" width="18" height="18" style="flex-shrink:0; margin-top:.2rem; opacity:.9;"></i>
+                            <p style="opacity: 0.9; margin: 0; font-size:.92rem;">First Floor, above Tasty-Biryani House, Palshi Road, Pisadevi, Chh. Sambhajinagar, Maharashtra 400001</p>
+                        </div>
+                        <div class="mb-2 d-flex gap-2 align-items-center">
+                            <i data-lucide="phone" width="18" height="18" style="flex-shrink:0; opacity:.9;"></i>
+                            <a href="tel:+917028884649">+91 70288 84649</a>
+                        </div>
+                        <div class="mb-3 d-flex gap-2 align-items-center">
+                            <i data-lucide="mail" width="18" height="18" style="flex-shrink:0; opacity:.9;"></i>
+                            <a href="mailto:k.kpatilpalaskarnetrarugnaseva@gmail.com">k.kpatilpalaskarnetrarugnaseva@gmail.com</a>
+                        </div>
+
+                        <div class="hours-card">
+                            <div class="row-l"><span>Mon – Fri</span><span>10:00 AM – 8:00 PM</span></div>
+                            <div class="row-l"><span>Saturday</span><span>10:00 AM – 6:00 PM</span></div>
+                            <div class="row-l"><span>Sunday</span><span>By Appointment</span></div>
+                        </div>
+
+                        <div class="emergency-card">
+                            <div class="em-t">Emergency</div>
+                            <div class="em-n"><a href="tel:+917028884649" style="color:#fff;">+91 70288 84649</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 map-card">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d363.66293337288096!2d75.38519227920698!3d19.916841505616528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdbbdd90332a9eb%3A0xc5d90b179605d470!2sK%20k%20patil%20palaskar%20netra%20rugnaseva!5e0!3m2!1sen!2sin!4v1763909915409!5m2!1sen!2sin"
+                        width="100%" height="320" style="border: 0;" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="K K Patil Palaskar Netra Rugnaseva Location"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container-custom px-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        <p class="mb-0">&copy; 2025 KK Patil Palaskar Eye Hospital. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="me-4">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating buttons -->
+    <a href="https://wa.me/917028884649" class="float-btn whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <i data-lucide="message-circle" width="26" height="26"></i>
+    </a>
+    <button class="float-btn back-top" id="backTop" aria-label="Back to top">
+        <i data-lucide="arrow-up" width="22" height="22"></i>
+    </button>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" src="" alt="">
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Lucide icons
+        lucide.createIcons();
+
+        // Scroll progress + navbar
+        const navbar = document.getElementById('navbar');
+        const progress = document.getElementById('scrollProgress');
+        const backTop = document.getElementById('backTop');
+        function onScroll() {
+            const scrollTop = window.scrollY;
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            const p = Math.max(0, Math.min(100, (scrollTop / h) * 100));
+            progress.style.width = p + '%';
+            if (scrollTop > 20) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
+            if (scrollTop > 400) backTop.classList.add('show'); else backTop.classList.remove('show');
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Active nav link on scroll
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = ['home','services','doctors','testimonials','appointment','contact']
+            .map(id => document.getElementById(id)).filter(Boolean);
+        const setActive = () => {
+            const y = window.scrollY + 120;
+            let current = 'home';
+            sections.forEach(s => { if (s.offsetTop <= y) current = s.id; });
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+        };
+        window.addEventListener('scroll', setActive, { passive: true });
+        setActive();
+
+        // Smooth scroll + close mobile menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href.length < 2) return;
+                const target = document.querySelector(href);
+                if (!target) return;
+                e.preventDefault();
+                const navbarCollapse = document.getElementById('navbarNav');
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Min date for appointment
+        const dateInput = document.getElementById('date');
+        if (dateInput) dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Animated counters
+        const counterIO = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                const suffix = el.dataset.suffix || '';
+                const duration = 1600;
+                const start = performance.now();
+                const step = (now) => {
+                    const p = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    const val = Math.floor(eased * target);
+                    el.textContent = val.toLocaleString() + suffix;
+                    if (p < 1) requestAnimationFrame(step);
+                    else el.textContent = target.toLocaleString() + suffix;
+                };
+                requestAnimationFrame(step);
+                counterIO.unobserve(el);
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
+
+        // Testimonials carousel
+        (function() {
+            const track = document.getElementById('tTrack');
+            const slides = track ? track.querySelectorAll('.t-slide') : [];
+            const dotsWrap = document.getElementById('tDots');
+            const prev = document.getElementById('tPrev');
+            const next = document.getElementById('tNext');
+            if (!track || !slides.length) return;
+
+            let perView = 3;
+            const setPerView = () => {
+                perView = window.innerWidth < 768 ? 1 : (window.innerWidth < 1024 ? 2 : 3);
+            };
+            setPerView();
+
+            let index = 0;
+            const pages = () => Math.max(1, slides.length - perView + 1);
+
+            const render = () => {
+                const slideW = slides[0].getBoundingClientRect().width;
+                const gap = 20;
+                track.style.transform = `translateX(-${index * (slideW + gap)}px)`;
+                dotsWrap.querySelectorAll('.t-dot').forEach((d, i) => d.classList.toggle('active', i === index));
+            };
+
+            const buildDots = () => {
+                dotsWrap.innerHTML = '';
+                for (let i = 0; i < pages(); i++) {
+                    const b = document.createElement('button');
+                    b.className = 't-dot' + (i === 0 ? ' active' : '');
+                    b.addEventListener('click', () => { index = i; render(); });
+                    dotsWrap.appendChild(b);
+                }
+            };
+
+            prev.addEventListener('click', () => { index = (index - 1 + pages()) % pages(); render(); });
+            next.addEventListener('click', () => { index = (index + 1) % pages(); render(); });
+
+            let auto = setInterval(() => { index = (index + 1) % pages(); render(); }, 6000);
+            track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
+            track.parentElement.addEventListener('mouseleave', () => auto = setInterval(() => { index = (index + 1) % pages(); render(); }, 6000));
+
+            let resizeT;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeT);
+                resizeT = setTimeout(() => { setPerView(); if (index > pages() - 1) index = 0; buildDots(); render(); }, 120);
+            });
+
+            buildDots();
+            requestAnimationFrame(render);
+        })();
+
+        // Lightbox
+        (function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.querySelector('.lightbox-content');
+            const closeBtn = document.querySelector('.lightbox-close');
+            if (!lightbox || !lightboxImg) return;
+
+            document.querySelectorAll('.lightbox-link').forEach(link => {
+                link.addEventListener('click', function(e){
+                    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+                    e.preventDefault();
+                    lightboxImg.src = encodeURI(this.getAttribute('href'));
+                    lightbox.style.display = 'block';
+                });
+            });
+            const close = () => { lightbox.style.display = 'none'; lightboxImg.src = ''; };
+            closeBtn && closeBtn.addEventListener('click', close);
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+        })();
+    </script>
+</body>
+</html>
